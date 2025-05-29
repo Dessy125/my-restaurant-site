@@ -1,0 +1,174 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.logo{
+ 
+    width: 200px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 30px; /* Space between logo and menu */
+}
+
+.menu-button {
+  font-size: 1.5rem;
+  background-color: #e9760b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.menu-button:hover {
+  background-color: #e5533d; /* Slightly darker on hover */
+}
+.Home{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #0c0804; /* Dark background */
+    color: white; /* White text */
+}
+
+/* General styles */
+.nav-menu {
+  display: none; /* Hidden by default for smaller screens */
+  flex-direction: column;
+  position: absolute;
+  top: 60px; /* Adjust based on header height */
+  right: 20px;
+  background-color:  #0c0804; /* Dark background */
+  border: 1px solid #ff6347;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+}
+
+.nav-menu a:hover {
+  background-color: #ff6347;
+  border-radius: 3px;
+  text-decoration: underline;/* Remove list bullets */
+
+}
+
+/* Show menu on larger screens */
+@media (min-width: 768px) {
+  .nav-menu {
+    display: flex; /* Show menu as a horizontal bar */
+    position: static;
+    flex-direction: row;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .menu-list {
+    display: flex;
+    gap: 20px;
+    list-style: none; /* Removes bullets */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+  }
+
+  .menu-button {
+    display: none; /* Hide the menu button on larger screens */
+  }
+}
+.search-button {
+  background-color: #e9760b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.search-button:hover {
+  background-color: #e5533d; /* Slightly darker on hover */
+}
+.search-but{
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-color: #e9760b;
+}
+
+/* Wrap search input and buttons on smaller screens */
+@media (max-width: 480px) {
+  .Home {
+    flex-wrap: wrap; /* Allow wrapping of child elements */
+    justify-content: center; /* Center the elements */
+  }
+
+  .menu-button {
+    align-self: flex-start; /* Keep the menu button at the top */
+    /* margin: 5px; Add consistent spacing */
+  }
+
+  .search-but,
+  .search-button {
+    width: auto; /* Retain their normal size */
+    margin: 5px; /* Add consistent spacing */
+  }
+}
+.content{
+  background-image: url(BG1.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 75vh; /* Full viewport height */
+  /* display: flex; */
+  /* justify-content: center; */
+  align-items: center;
+  color: white;
+  margin: auto;
+   
+}
+.welcome{
+    font-size: 2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for better readability */
+    color: #e9760b;
+    position: relative;
+    top: 35%;
+   
+   
+}
+.description{
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for better readability */
+    color: white;
+    position: relative;
+    top: 40%;
+  
+}
+.click{
+  color: #e9760b;
+ padding: 10px;
+ position: relative;
+ top: 50%;
+ margin-left: 42%;
+ border: none;
+ border-radius: 10px;
+ cursor: pointer;
+}
+.natty_logo {
+  width: 100px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-left: 30px; /* Space between logo and menu */
+}

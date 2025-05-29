@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* General styles for all screen sizes */
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .BG {
+        background-image: url(menu4.jpeg);
+        height: auto;
+        padding: 20px;
+        background-position: center;
+        background-size: cover;
+    }
+
+    section {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        margin: 20px 0;
+    }
+
+    .ricediv, .stewdiv, .burgerdiv, .jollofdiv, .coleslawdiv, .chickendiv, .meatpiediv, 
+    .Plantaindiv, .egusidiv, .okorodiv, .spagdiv, .softdrinkdiv, .fufudiv, .beansdiv, 
+    .Pancakediv, .waterdiv, .frieddiv, .friesdiv, .Cakediv, .bucketchickendiv {
+        background-color: rgb(112, 32, 3);
+        width: 20%; /* Default width for larger screens */
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 15px;
+        border-radius: 10px;
+        color: beige;
+        margin: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .rice, .stew, .burger, .jollof, .coleslaw, .chicken, .meatpie, 
+    .Plantain, .egusi, .okoro, .spag, .softdrink, .fufu, .beans, 
+.Pancake, .water, .fried, .fries, .Cake, .bucketchicken {
+width: 200px;
+height: 200px;
+}
+       
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .MENU {
+            font-size: 28px; /* Adjust font size for smaller screens */
+            display: flex;
+            justify-content: center;
+            color: #9b5127;
+        }
+        
+    .butt {
+        border: none;
+        border-radius: 10px;
+        height: 30px;
+        background-color: rgb(196, 66, 6);
+        color: white;
+        cursor: pointer;
+        padding: 5px 10px;
+    }
+
+    .butt:hover {
+        background-color: rgb(150, 50, 5);
+    }
+
+    /* Media query for tablets and smaller screens */
+    @media (max-width: 1024px) {
+        section {
+            justify-content: center; /* Center items on smaller screens */
+        }
+
+        .ricediv, .stewdiv, .burgerdiv, .jollofdiv, .coleslawdiv, .chickendiv, .meatpiediv, 
+        .Plantaindiv, .egusidiv, .okorodiv, .spagdiv, .softdrinkdiv, .fufudiv, .beansdiv, 
+        .Pancakediv, .waterdiv, .frieddiv, .friesdiv, .Cakediv, .bucketchickendiv {
+            width: 45%; /* Adjust width for tablets */
+            margin: 10px 5px;
+        }
+
+        .MENU {
+            font-size: 28px; /* Adjust font size for smaller screens */
+            display: flex;
+            justify-content: center;
+            color: #9b5127;
+        }
+    }
+
+    /* Media query for phones */
+    @media (max-width: 768px) {
+        section {
+            flex-direction: column; /* Stack items vertically */
+            align-items: center;
+        }
+
+        .ricediv, .stewdiv, .burgerdiv, .jollofdiv, .coleslawdiv, .chickendiv, .meatpiediv, 
+        .Plantaindiv, .egusidiv, .okorodiv, .spagdiv, .softdrinkdiv, .fufudiv, .beansdiv, 
+        .Pancakediv, .waterdiv, .frieddiv, .friesdiv, .Cakediv, .bucketchickendiv {
+            width: 90%; /* Full width for smaller screens */
+            margin: 10px 0;
+        }
+
+        .MENU {
+            font-size: 24px; /* Adjust font size for smaller screens */
+            display: flex;
+            justify-content: center;
+            color: #9b5127;
+        }
+    }
+
+    /* Media query for very small phones */
+    @media (max-width: 480px) {
+        .ricediv, .stewdiv, .burgerdiv, .jollofdiv, .coleslawdiv, .chickendiv, .meatpiediv, 
+        .Plantaindiv, .egusidiv, .okorodiv, .spagdiv, .softdrinkdiv, .fufudiv, .beansdiv, 
+        .Pancakediv, .waterdiv, .frieddiv, .friesdiv, .Cakediv, .bucketchickendiv {
+            width: 80%; /* Full width for very small screens */
+            padding: 10px;
+        }
+
+        .butt {
+            font-size: 14px; /* Adjust button font size */
+            height: 25px;
+        }
+
+        .MENU {
+            font-size: 20px; /* Further reduce font size */
+            display: flex;
+            justify-content: center;
+            color: #9b5127;
+        }
+    }
+
+    img.cart-logo {
+        transition: transform 0.3s ease;
+    }
+
+    img.cart-logo:hover {
+        transform: scale(1.2); /* Slightly enlarge the icon on hover */
+    }
+
+    .menu-header {
+        display: flex;
+        align-items: center; /* Align items vertically */
+        justify-content: center; /* Center the content horizontally */
+        gap: 10px; /* Add space between the menu title and the cart icon */
+        margin-bottom: 20px; /* Add spacing below the header */
+    }
+
+    .MENU {
+        font-size: 28px; /* Adjust font size */
+        color: #9b5127;
+        margin: 0; /* Remove default margin */
+    }
+
+    /* Badge styles */
+    #cartCount {
+        position: absolute;
+        top: -5px;
+        right: -10px;
+        background-color: red;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 50%;
+        padding: 2px 6px;
+        display: none; /* Initially hidden */
+    }
+</style>
+<body>
+   <div class="BG">
+    <div class="menu-header">
+        <h1 class="MENU">MENU</h1>
+        <a href="#cart" style="position: relative;">
+            <img src="cart-icon.png" alt="Cart Icon" class="cart-logo" style="width: 50px; height: 50px; cursor: pointer;">
+            <span id="cartCount" style="
+                position: absolute;
+                top: -5px;
+                right: -10px;
+                background-color: red;
+                color: white;
+                font-size: 14px;
+                font-weight: bold;
+                border-radius: 50%;
+                padding: 2px 6px;
+                display: none;">0</span>
+        </a>
+    </div>
+   <section>
+    <div class="ricediv" id="rice"> <img src="rice.jpeg" class="rice" alt="" width="230px" height="130px">
+        <h3>Rice</h3>
+       A plate of rice
+       <br> <p>₦1000</p> 
+       <button class="butt" onclick="addToCart ('Rice', 1000)">Add to cart</button>
+    </div>
+<script>
+    // Array to store cart items
+    let cart = [];
+    let totalPrice = 0;
+
+    // Function to update the cart quantity badge
+    function updateCartCount() {
+        const cartCount = document.getElementById("cartCount");
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+        if (totalItems > 0) {
+            cartCount.textContent = totalItems; // Update the badge with the total quantity
+            cartCount.style.display = "inline"; // Show the badge
+        } else {
+            cartCount.style.display = "none"; // Hide the badge if the cart is empty
+        }
+    }
+
+    // Function to handle "Add to Cart"
+    function addToCart(itemName, itemPrice) {
+        // Check if the item already exists in the cart
+        const existingItem = cart.find(item => item.name === itemName);
+
+        if (existingItem) {
+            // If the item exists, increase its quantity
+            existingItem.quantity += 1;
+            existingItem.totalPrice += itemPrice;
+        } else {
+            // If the item doesn't exist, add it to the cart
+            cart.push({ name: itemName, price: itemPrice, quantity: 1, totalPrice: itemPrice });
+        }
+
+        // Update the total price
+        totalPrice += itemPrice;
+
+        // Display a confirmation message
+        alert(`${itemName} has been added to your cart!`);
+
+        // Update the cart display
+        updateCartDisplay();
+        updateCartCount(); // Update the cart quantity badge
+    }
+
+    // Function to handle "Remove from Cart"
+    function removeFromCart(itemName) {
+        // Find the item in the cart
+        const itemIndex = cart.findIndex(item => item.name === itemName);
+
+        if (itemIndex !== -1) {
+            const item = cart[itemIndex];
+
+            // Decrease the total price
+            totalPrice -= item.price;
+
+            // Decrease the quantity or remove the item if quantity is 1
+            if (item.quantity > 1) {
+                item.quantity -= 1;
+                item.totalPrice -= item.price;
+            } else {
+                cart.splice(itemIndex, 1); // Remove the item from the cart
+            }
+
+            // Update the cart display
+            updateCartDisplay();
+            updateCartCount(); // Update the cart quantity badge
+        }
+    }
+
+    // Function to update the cart display
+    function updateCartDisplay() {
+        const cartItems = document.getElementById("cartItems");
+        const totalPriceElement = document.getElementById("totalPrice");
+        const cartCountElement = document.getElementById("cartCount");
+
+        // Clear the current cart display
+        cartItems.innerHTML = "";
+
+        // Display each item in the cart
+        cart.forEach(item => {
+            const listItem = document.createElement("li");
+            listItem.innerHTML = `
+                ${item.name} - ₦${item.price} x ${item.quantity} = ₦${item.totalPrice}
+                <button onclick="removeFromCart('${item.name}')">Remove</button>
+            `;
+            cartItems.appendChild(listItem);
+        });
+
+        // Update the total price display
+        totalPriceElement.textContent = totalPrice;
+
+        // Update the cart count display
+        cartCountElement.textContent = cart.length;
+        cartCountElement.style.display = cart.length > 0 ? "inline" : "none";
+    }
+
+    // Function to handle checkout
+    function checkout() {
+        const deliveryAddress = document.getElementById("deliveryAddress").value.trim();
+
+        if (cart.length === 0) {
+            alert("Your cart is empty. Please add items to your cart before checking out.");
+        } else if (deliveryAddress === "") {
+            alert("Please enter your delivery address before checking out.");
+        } else {
+            let cartSummary = "Your Cart:\n";
+            cart.forEach(item => {
+                cartSummary += `${item.name} - ₦${item.price} x ${item.quantity} = ₦${item.totalPrice}\n`;
+            });
+            cartSummary += `\nTotal: ₦${totalPrice}`;
+            cartSummary += `\n\nDelivery Address: ${deliveryAddress}`;
+            
+            // Display the order summary
+            alert(`Thank you for your order!\n\n${cartSummary}`);
+            
+            // Display the success message
+            alert("Order placed successfully! Your order will arrive in 25 minutes.");
+
+            // Clear the cart and delivery address after checkout
+            cart = [];
+            totalPrice = 0;
+            document.getElementById("deliveryAddress").value = "";
+            updateCartDisplay();
+            updateCartCount(); // Update the cart quantity badge
+        }
+    }
+</script>
+<div id="stew" class="stewdiv">
+<img class="stew" src="stew.jpeg" alt="" width="230px" height="130px">
+<h1> Stew</h1>
+A plate of Stew
+<br> <p>2000</p>
+<button class="butt" onclick="addToCart ('Stew', 2000)">Add to cart</button>
+</div>
+
+<div class="bucketchickendiv">
+    <img src="bucket chicken.jpeg" alt="" width="230px" height="130px">
+    <h1> Bucket Chicken</h1>
+    Enjoy 8 pieces of fried chicken
+    <br> <p> ₦15,000</p>
+    <button class="butt" onclick="addToCart ('Bucket Chicken', 15000)">Add to cart</button>
+</div>
+
+<div class="burgerdiv">
+    <img class="burger" src="burger.jpg" alt="" width="230px" height="130px">
+    <h1> Burger </h1>
+    Enjoy a mighty chief Burger
+    <br> <p> ₦5000</p>
+    <button class="butt" onclick="addToCart ('Burger', 5000)">Add to cart</button>
+</div>
+   </section>
+
+   <section>
+    <div class="jollofdiv">
+        <img src="jollof rice.jpg" alt=""  width="230px" height="130px">
+        <h1> jollof Rice </h1>
+        A portion of smokey jollof rice
+        <br> <p> ₦2000</p>
+        <button class="butt" onclick="addToCart ('Jollof rice', 2000)">Add to cart</button>
+    </div>
+
+    <div class="coleslawdiv">
+  <img class="coleslaw" src="coleslaw.jpg" alt=""  width="230px" height="130px">
+  <h1> coleslaw </h1>
+  A portion of coleslaw
+  <br> <p> ₦1000</p>
+  <button class="butt" onclick="addToCart ('Colesaw', 1000)">Add to cart</button>
+    </div>
+
+    <div class="chickendiv">
+        <img class="chicken" src="chicken.jpeg" alt=""  width="230px" height="130px">
+        <h1> Full Chicken </h1>
+        A juicy flavored chicken
+        <br> <p> ₦18,000</p>     
+        <button class="butt" onclick="addToCart ('Chicken', 18000)">Add to cart</button>
+    </div>
+
+    <div class="meatpiediv">
+   <img class="meatpie" src="meatpie.jpeg" alt="" width="230px" height="130px">
+   <h1> Meatpie </h1>
+   Enjoy our hot, tasty meatpie
+   <br> <p> ₦1,300</p>   
+   <button class="butt" onclick="addToCart ('Meatpie', 1300)">Add to cart</button>
+    </div>
+
+   </section>
+
+<section>
+<div class="Plantaindiv">
+<img src="plantains.jpg" alt=""width="230px" height="130px">
+<h1> Plantains </h1>
+large portion of plaintain
+<br> <p> ₦1,000</p>   
+<button class="butt" onclick="addToCart ('Plantain', 1000)">Add to cart</button>
+</div>
+
+<div class="egusidiv">
+    <img class="egusi" src="egusi.png" alt="" width="230px" height="130px">
+    <h1> Egusi </h1>
+   A plate of savory Egusi soup
+    <br> <p> ₦2,500</p>   
+    <button class="butt" onclick="addToCart ('Egusi-soup', 2500)">Add to cart</button>
+</div>
+
+<div class="okorodiv">
+<img src="0kro.jpg" alt="" width="230px" height="130px">
+<h1> Okra Soup </h1>
+A plate of tasty Okra soup
+ <br> <p> ₦2,400</p>   
+ <button class="butt" onclick="addToCart ('Okoro Soup', 2400)">Add to cart</button>
+</div>
+
+<div class="spagdiv">
+    <img src="sphaghetti.jpg" alt="" width="230px" height="130px">
+    <h1> Spaghetti </h1>
+    A plate of spicy Spaghetti
+     <br> <p> ₦2,000</p>  
+     <button class="butt" onclick="addToCart ('Spaghetti', 2000)">Add to cart</button>
+</div>
+</section>
+<section>
+    <div class="softdrinkdiv">
+    <img src="softdrinks.jpeg" alt="" width="230px" height="130px">
+    <h1> softdrink </h1>
+    Chilled softdrink
+     <br> <p> ₦1,000</p>  
+     <button class="butt" onclick="addToCart ('softdrink', 1000)">Add to cart</button>
+    </div>
+
+    <div class="fufudiv">
+        <img class="fufu" src="fufu.jpg" alt="" width="200px" height="200px">
+        <h1> Fufu </h1>
+      A piece of fufu
+         <br> <p> ₦1,000</p>  
+         <button class="butt" onclick="addToCart ('Fufu', 1000)">Add to cart</button>
+    </div>
+
+    <div class="beansdiv">
+        <img class="beans" src="beans.jpg" alt="" width="200px" height="200px">
+        <h1> Beans </h1>
+       plate of beans, plantain,fish
+           <br> <p> ₦3,000</p>  
+           <button class="butt" onclick="addToCart ('Beans', 3000)">Add to cart</button>
+    </div>
+       
+    <div class="Pancakediv">
+        <img class="Pancake" src="Pancake.jpg" alt="" width="200px" height="200px">
+        <h1>Pancakes </h1>
+      mouth-watering Pancakes
+           <br> <p> ₦1,800</p>  
+           <button class="butt" onclick="addToCart ('Pancake', 1800)">Add to cart</button>
+    </div>
+
+   
+</section>
+
+<section>
+    <div class="waterdiv">
+        <img class="water" src="bottle of watger.jpg" alt="" width="200px" height="200px">
+       <h1> Bottle water</h1>
+      A Bottle of water
+        <br> <p> ₦700</p>  
+        <button class="butt" onclick="addToCart ('water', 700)">Add to cart</button>
+    </div>
+
+    <div class="frieddiv">
+        <img class="fried" src="fried rice.jpg" alt="" width="270px" height="120px">
+       <h1> Fried rice</h1>
+     Savory Fried rice
+        <br> <p> ₦2,800</p> 
+        <button class="butt" onclick="addToCart ('Friedrice', 2800)">Add to cart</button> 
+    </div>
+
+    <div class="friesdiv">
+        <img class="fries" src="fries.jpg" alt="" width="230px" height="200px">
+       <h1> French fries</h1>
+     Crunchy golden fries
+        <br> <p> ₦2,000</p>  
+        <button class="butt" onclick="addToCart ('Fries', 2000)">Add to cart</button>
+    </div>
+
+    <div class="Cakediv">
+        <img class="Cake" src="cake.jpg" alt="" width="230px" height="200px">
+       <h1> Cake</h1>
+    Sweet Creamy Delicious Cake
+        <br> <p> ₦20,000</p>  
+        <button class="butt" onclick="addToCart ('Cake', 20000)">Add to cart</button>
+    </div>
+</section>
+
+
+<div id="cart" style="margin-top: 20px; padding: 10px; border: 1px solid #0f0a05; background-color: #ecb988;">
+    <h2>Your Cart</h2>
+    <ul id="cartItems"></ul>
+    <h3>Total: ₦<span id="totalPrice">0</span></h3>
+
+    <!-- Delivery Address Input -->
+    <div style="margin-top: 20px;">
+        <label for="deliveryAddress">Delivery Address:</label><br>
+        <textarea id="deliveryAddress" rows="2" style="width: 100%; padding: 3px;" placeholder="Enter your delivery address"></textarea>
+    </div>
+
+    <button id="checkoutButton" class="butt" onclick="checkout()">Checkout</button>
+</div>
+
+   </div>
+</body>
+</html>

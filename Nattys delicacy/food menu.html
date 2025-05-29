@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="natty.css">
+    <link rel="stylesheet" href="food menu2.html">
+    <title>Natty's Delicacy</title>
+    <link rel="logo" href="natty_logo-removebg-preview.png">
+  
+    <style>
+      /* Add some styles for the search results */
+      .search-results {
+          margin-top: 20px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          background-color: #f9f9f9;
+      }
+      .result-item {
+          padding: 5px;
+          margin: 5px 0;
+          background-color: #f0bba3;
+          border-radius: 5px;
+      }
+
+      /* General styles for the navigation menu */
+      .nav-menu {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+      }
+
+      .menu-list {
+          display: flex;
+          gap: 20px;
+      }
+
+      .menu-list li {
+          list-style: none;
+      }
+
+      .menu-list a {
+          text-decoration: none;
+          color: rgb(104, 0, 0);
+          font-size: 18px;
+          font-weight: bold;
+      }
+
+      .menu-button {
+          display: none; /* Hide the menu button by default */
+          background: none;
+          border: none;
+          font-size: 24px;
+          cursor: pointer;
+      }
+
+      /* Logo and title styling */
+      .logo-title {
+          display: flex;
+          align-items: center; /* Align logo and title vertically */
+          gap: 10px; /* Add space between the logo and title */
+      }
+
+      .logo {
+          width: 150px; /* Adjust the logo size */
+          height: 170px
+      }
+
+      .title {
+          font-size: 24px; /* Adjust the title font size */
+          color: rgb(104, 0, 0); /* Match the title color with the theme */
+          margin: 0; /* Remove default margin */
+      }
+
+      /* Media query for smaller screens (tablets and phones) */
+      @media (max-width: 768px) {
+          .menu-button {
+              display: block; /* Show the menu button on smaller screens */
+          }
+
+          .nav-menu {
+              flex-direction: column;
+              align-items: flex-start;
+              background-color: #f9f9f9;
+              position: absolute;
+              top: 60px;
+              left: 0;
+              width: 100%;
+              display: none; /* Initially hide the menu */
+              padding: 10px;
+              box-shadow: 0 4px 6px rgba(51, 11, 11, 0.1);
+          }
+
+          .nav-menu.active {
+              display: flex; /* Show the menu when active */
+          }
+
+          .menu-list {
+              flex-direction: column;
+              gap: 10px;
+              width: 100%;
+          }
+
+          .menu-list a {
+              font-size: 16px;
+              padding: 10px;
+              width: 100%;
+              text-align: left;
+              color: rgb(0, 0, 0);
+          }
+
+          .logo-title {
+              justify-content: center; /* Center the logo and title on smaller screens */
+          }
+
+          .title {
+              font-size: 20px; /* Reduce font size for smaller screens */
+          }
+      }
+    </style>
+</head>
+<body>
+    <header class="Home">
+        <div class="logo-title">
+            <img src="natty_logo-removebg-preview.png" alt="Natty's Logo" class="logo">
+        </div>
+        <input type="search" name="search" id="searchInput" class="search-but" placeholder="Search for delicacies">
+        <button onclick="searchFood()" class="search-button">Search</button>
+        <button class="menu-button" onclick="toggleMenu()">≡</button>
+        <nav class="nav-menu">
+            <ul class="menu-list">
+                <li><a href="food menu.html">Home</a></li>
+                <li><a href="aboutfood.html">About</a></li>
+                <li><a href="food menu2.html">Dishes</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <h1 class="welcome">Welcome to Natty's Delicacy</h1>
+        <p class="description">Your one-stop destination for delicious and mouth-watering dishes.</p>
+        <p class="description">Explore our delicious menu and find your favorite dish!</p>
+       <a href="food menu2.html"> <button onclick="orderFood()" class="click"> Order Now </button></a>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+</body>
+<script>
+  // Predefined list of food items
+  const foodItems = ["pizza", "burger", "Chicken", "salad", "Rice", "Egusi-soup", "Okra soup", "fufu", "water", "Spaghetti" 
+  , "Jollof rice", "Pasta", "Noodles", "Beans", "Efo riro", "Moi moi", "Pepper soup", "Suya", "Pounded yam", "Eba" , "Fried rice" , "Plantain" , "Meat" , "Chicken wings" , "Doughnut" , "Cake"
+  ,"Puff-puff", "Buns",  "Beans",  "Pancakes" , "French fries" ,   "Fruit salad", "Colesaw" ,
+  ];
+
+  function toggleMenu() {
+      const menu = document.querySelector('.nav-menu');
+      menu.classList.toggle('active');
+  }
+
+  function searchFood() {
+      // Get the input value
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const resultsContainer = document.getElementById("searchResults");
+
+      // Clear previous results
+      resultsContainer.innerHTML = "";
+
+      // Check if the input matches any food item
+      const matches = foodItems.filter(item => item.toLowerCase().includes(input));
+      
+
+      if (matches.length > 0) {
+          matches.forEach(match => {
+              const resultItem = document.createElement("a");
+              resultItem.textContent = match;
+              resultItem.href = `food menu2.html#${match.toLowerCase().replace(/\s+/g, '-')}`;
+              resultItem.classList.add("result-item");
+              resultsContainer.appendChild(resultItem);
+          });
+      } else {
+          resultsContainer.innerHTML = `<p>Sorry, "${input}" is not available in our menu.</p>`;
+      }
+  }
+</script>
+</html>
